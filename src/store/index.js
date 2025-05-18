@@ -125,63 +125,9 @@ export const usePortfolioStore = defineStore('portfolio', {
         technologies: ['Unity', 'C#', 'VR', 'Data Visualization']
       }
     ],
-    blogPosts: [
-      {
-        id: 1,
-        title: 'Optimizing Vue.js Performance',
-        date: '2023-04-15',
-        summary: 'Techniques for improving the performance of your Vue.js applications.',
-        content: `
-          <h2>Optimizing Vue.js Performance</h2>
-          <p>Performance optimization is crucial for providing a smooth user experience in web applications. In this post, I'll share some techniques I've used to optimize Vue.js applications.</p>
-          <h3>1. Use Computed Properties Wisely</h3>
-          <p>Computed properties are cached based on their dependencies, making them more efficient than methods for operations you need to perform repeatedly.</p>
-          <h3>2. Implement Lazy Loading</h3>
-          <p>Lazy loading components and routes can significantly reduce the initial load time of your application.</p>
-          <h3>3. Virtual Scrolling for Long Lists</h3>
-          <p>When dealing with long lists, virtual scrolling can dramatically improve performance by only rendering items that are visible to the user.</p>
-        `,
-        tags: ['Vue.js', 'Performance', 'Frontend']
-      },
-      {
-        id: 2,
-        title: 'Building Scalable Backend Services',
-        date: '2023-02-22',
-        summary: 'Strategies for designing backend services that can scale with your application.',
-        content: `
-          <h2>Building Scalable Backend Services</h2>
-          <p>As applications grow, the ability to scale becomes increasingly important. Here are some strategies I've employed for building scalable backend services.</p>
-          <h3>1. Microservices Architecture</h3>
-          <p>Breaking down your application into smaller, focused services can make it easier to scale individual components as needed.</p>
-          <h3>2. Caching Strategies</h3>
-          <p>Implementing effective caching can reduce database load and improve response times.</p>
-          <h3>3. Database Optimization</h3>
-          <p>Proper indexing, query optimization, and sometimes denormalization can significantly improve database performance under load.</p>
-        `,
-        tags: ['Backend', 'Scalability', 'Architecture']
-      },
-      {
-        id: 3,
-        title: 'The Power of CSS Grid',
-        date: '2023-01-10',
-        summary: 'How CSS Grid has revolutionized web layout design and how to use it effectively.',
-        content: `
-          <h2>The Power of CSS Grid</h2>
-          <p>CSS Grid has transformed how we approach layout design on the web. Here's why I love using it and some tips for getting the most out of it.</p>
-          <h3>1. Two-Dimensional Layouts</h3>
-          <p>Unlike Flexbox, Grid allows you to control both rows and columns simultaneously, enabling complex layouts with less code.</p>
-          <h3>2. Named Areas</h3>
-          <p>Grid areas provide an intuitive way to define layouts, making your CSS more readable and maintainable.</p>
-          <h3>3. Responsive Design Without Media Queries</h3>
-          <p>With functions like minmax() and auto-fill/auto-fit, you can create responsive layouts that adapt to different screen sizes with minimal code.</p>
-        `,
-        tags: ['CSS', 'Web Design', 'Frontend']
-      }
-    ]
   }),
   getters: {
     getFeaturedProjects: (state) => state.projects.filter(project => project.featured),
-    getBlogPostById: (state) => (id) => state.blogPosts.find(post => post.id === parseInt(id)),
     getProjectById: (state) => (id) => state.projects.find(project => project.id === parseInt(id))
   },
   actions: {

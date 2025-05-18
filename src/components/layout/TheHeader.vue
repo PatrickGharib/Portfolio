@@ -58,7 +58,6 @@ onUnmounted(() => {
           <li><router-link to="/experience" @click="closeMenu">Experience</router-link></li>
           <li><router-link to="/projects" @click="closeMenu">Projects</router-link></li>
           <li><router-link to="/skills" @click="closeMenu">Skills</router-link></li>
-          <li><router-link to="/blog" @click="closeMenu">Blog</router-link></li>
           <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
           <li><router-link to="/about-site" @click="closeMenu">About This Site</router-link></li>
         </ul>

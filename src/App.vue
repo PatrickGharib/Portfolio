@@ -122,7 +122,8 @@ body {
 /* Main content */
 .main-content {
   flex: 1;
-  width: 100vw; /* Full viewport width */
+  width: 100%; /* Use percentage instead of viewport width */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
   margin: 0;
   padding: 80px 0 0; /* Account for fixed header */
   display: flex;
@@ -135,6 +136,7 @@ body {
 /* Ensure all sections take full width */
 .main-content > * {
   width: 100%;
+  max-width: 100%;
   padding: 0 2rem;
   box-sizing: border-box;
 }

@@ -120,18 +120,7 @@ onMounted(() => {
       >
         <div class="project-image">
           <img :src="project.image" :alt="project.title" />
-          <div class="project-overlay">
-            <div class="project-links">
-              <a :href="project.demoUrl" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span class="icon">🔗</span>
-                Live Demo
-              </a>
-              <a :href="project.repoUrl" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span class="icon">💻</span>
-                Source Code
-              </a>
-            </div>
-          </div>
+          <div class="project-overlay"></div>
         </div>
         <div class="project-content">
           <h2 class="project-title">{{ project.title }}</h2>

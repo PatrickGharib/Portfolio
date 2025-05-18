@@ -5,15 +5,16 @@
 .projects {
   padding: 2rem 0 4rem;
   width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .projects-intro {
+  width: 100%;
   max-width: 800px;
   margin: 2rem auto 3rem;
-  width: 100%;
   padding: 0 1rem;
 }
 
@@ -25,11 +26,9 @@
 }
 
 .filter-container {
-  margin-bottom: 3rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -74,14 +73,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
-  justify-content: center;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
   padding: 0 1rem;
   box-sizing: border-box;
+  justify-content: center;
 }
 
 @media (min-width: 1600px) {
@@ -153,32 +150,6 @@
   opacity: 1;
 }
 
-.project-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.project-link {
-  background-color: var(--color-primary);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-.project-link:hover {
-  background-color: var(--color-secondary);
-}
-
-.icon {
-  font-size: 1.2rem;
-}
-
 .project-content {
   padding: 1.5rem;
 }
@@ -221,11 +192,10 @@
   padding: 3rem;
   background-color: var(--color-background-soft);
   border-radius: 8px;
-  margin-bottom: 4rem;
   width: 100%;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 4rem;
+  box-sizing: border-box;
 }
 
 .no-results p {
@@ -239,11 +209,9 @@
   padding: 3rem;
   text-align: center;
   border-radius: 8px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
-  margin-top: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
   box-sizing: border-box;
 }
 
@@ -293,10 +261,5 @@
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .project-links {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 }

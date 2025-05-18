@@ -59,31 +59,8 @@ onMounted(() => {
   <div class="project-card">
     <div class="project-card-header">
       <h3 class="project-card-title">
-        <a :href="repository.html_url" target="_blank" rel="noopener noreferrer">
-          {{ repository.name }}
-        </a>
+        {{ repository.name }}
       </h3>
-      <div class="project-card-links">
-        <a 
-          v-if="repository.homepage" 
-          :href="repository.homepage" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="project-card-link"
-          title="Live Demo"
-        >
-          🔗
-        </a>
-        <a 
-          :href="repository.html_url" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="project-card-link"
-          title="View on GitHub"
-        >
-          📂
-        </a>
-      </div>
     </div>
     
     <p class="project-card-description">
