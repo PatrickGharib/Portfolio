@@ -89,8 +89,14 @@ onMounted(() => {
   padding: 0;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
+  width: 100%;
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
@@ -102,8 +108,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
+  overflow-x: hidden;
 }
 
 /* App container */
@@ -111,23 +116,27 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
 /* Main content */
 .main-content {
   flex: 1;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 80px 2rem 0; /* Account for fixed header and add horizontal padding */
+  width: 100vw; /* Full viewport width */
+  margin: 0;
+  padding: 80px 0 0; /* Account for fixed header */
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Ensure all sections take full width */
 .main-content > * {
   width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 /* Page transitions */

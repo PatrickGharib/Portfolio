@@ -362,6 +362,30 @@ onMounted(() => {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .skills-grid {
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 2560px) {
+  .skills-grid {
+    max-width: 1800px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+@media (min-width: 3840px) {
+  .skills-grid {
+    max-width: 2400px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
 }
 
 .skill-category {
@@ -468,6 +492,30 @@ onMounted(() => {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .skills-cards {
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 2560px) {
+  .skills-cards {
+    max-width: 1800px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 3840px) {
+  .skills-cards {
+    max-width: 2400px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 }
 
 .skill-card {
@@ -512,6 +560,30 @@ onMounted(() => {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .tools-grid {
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 2560px) {
+  .tools-grid {
+    max-width: 1800px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 3840px) {
+  .tools-grid {
+    max-width: 2400px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 }
 
 .tool-category {
@@ -581,6 +653,30 @@ onMounted(() => {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .learning-grid {
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 2560px) {
+  .learning-grid {
+    max-width: 1800px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+@media (min-width: 3840px) {
+  .learning-grid {
+    max-width: 2400px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
 }
 
 .learning-item {
@@ -635,6 +731,29 @@ onMounted(() => {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .cta-section {
+    max-width: 1400px;
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .cta-section {
+    max-width: 1800px;
+    padding: 5rem;
+  }
+}
+
+@media (min-width: 3840px) {
+  .cta-section {
+    max-width: 2400px;
+    padding: 6rem;
+  }
 }
 
 .cta-section h2 {

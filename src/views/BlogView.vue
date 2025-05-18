@@ -327,6 +327,28 @@ onMounted(() => {
   margin-right: auto;
   width: 100%;
   padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .blog-posts-grid {
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+}
+
+@media (min-width: 2560px) {
+  .blog-posts-grid {
+    max-width: 1800px;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+}
+
+@media (min-width: 3840px) {
+  .blog-posts-grid {
+    max-width: 2400px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  }
 }
 
 .blog-post-card {
@@ -421,6 +443,28 @@ onMounted(() => {
   margin-right: auto;
   width: 100%;
   margin-top: 2rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1600px) {
+  .newsletter-section {
+    max-width: 1400px;
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .newsletter-section {
+    max-width: 1800px;
+    padding: 5rem;
+  }
+}
+
+@media (min-width: 3840px) {
+  .newsletter-section {
+    max-width: 2400px;
+    padding: 6rem;
+  }
 }
 
 .subsection-title {

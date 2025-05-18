@@ -1,0 +1,106 @@
+/**
+ * Language Badge Component Styles
+ */
+
+.language-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  background-color: var(--color-background-soft);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.language-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Language-specific colors */
+.language-badge.javascript {
+  background-color: rgba(241, 224, 90, 0.2);
+  border-color: rgba(241, 224, 90, 0.4);
+}
+
+.language-badge.typescript {
+  background-color: rgba(49, 120, 198, 0.2);
+  border-color: rgba(49, 120, 198, 0.4);
+}
+
+.language-badge.html {
+  background-color: rgba(227, 76, 38, 0.2);
+  border-color: rgba(227, 76, 38, 0.4);
+}
+
+.language-badge.css {
+  background-color: rgba(38, 77, 228, 0.2);
+  border-color: rgba(38, 77, 228, 0.4);
+}
+
+.language-badge.vue {
+  background-color: rgba(65, 184, 131, 0.2);
+  border-color: rgba(65, 184, 131, 0.4);
+}
+
+.language-badge.python {
+  background-color: rgba(53, 114, 165, 0.2);
+  border-color: rgba(53, 114, 165, 0.4);
+}
+
+.language-badge.java {
+  background-color: rgba(176, 114, 25, 0.2);
+  border-color: rgba(176, 114, 25, 0.4);
+}
+
+.language-badge.csharp {
+  background-color: rgba(104, 33, 122, 0.2);
+  border-color: rgba(104, 33, 122, 0.4);
+}
+
+.language-badge.php {
+  background-color: rgba(119, 123, 179, 0.2);
+  border-color: rgba(119, 123, 179, 0.4);
+}
+
+.language-badge.ruby {
+  background-color: rgba(204, 52, 45, 0.2);
+  border-color: rgba(204, 52, 45, 0.4);
+}
+
+.language-badge.go {
+  background-color: rgba(32, 173, 194, 0.2);
+  border-color: rgba(32, 173, 194, 0.4);
+}
+
+.language-badge.rust {
+  background-color: rgba(222, 165, 132, 0.2);
+  border-color: rgba(222, 165, 132, 0.4);
+}
+
+.language-badge.swift {
+  background-color: rgba(255, 172, 69, 0.2);
+  border-color: rgba(255, 172, 69, 0.4);
+}
+
+.language-badge.kotlin {
+  background-color: rgba(143, 104, 205, 0.2);
+  border-color: rgba(143, 104, 205, 0.4);
+}
+
+.language-badge.dart {
+  background-color: rgba(0, 180, 216, 0.2);
+  border-color: rgba(0, 180, 216, 0.4);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .language-badge {
+    opacity: 0.9;
+  }
+}
