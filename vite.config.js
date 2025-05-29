@@ -39,6 +39,17 @@ export default defineConfig({
     include: ['vuetify']
   },
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vue': ['vue', 'vue-router'],
+          'pinia': ['pinia'],
+          'vuetify': ['vuetify']
+        }
+      }
+    },
     commonjsOptions: {
       transformMixedEsModules: true
     }

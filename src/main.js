@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
+// Remove the deprecated components import
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import App from './App.vue'
@@ -13,9 +13,8 @@ import router from './router'
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
 
-// Configure Vuetify
+// Configure Vuetify - removed components property to fix deprecation warning
 const vuetify = createVuetify({
-  components,
   directives,
   icons: {
     defaultSet: 'mdi',

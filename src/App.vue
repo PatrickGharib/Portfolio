@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
-import { usePortfolioStore } from './store'
+import { usePortfolioStore } from './store/index.js'
 import { useTheme } from 'vuetify'
 import TheHeader from './components/layout/TheHeader.vue'
 import TheFooter from './components/layout/TheFooter.vue'
