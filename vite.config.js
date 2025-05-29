@@ -41,14 +41,30 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    // Ensure all dependencies are properly bundled for production
+    // This is essential for GitHub Pages deployment to avoid bare specifier errors
     rollupOptions: {
       output: {
+        // Ensure proper code splitting
         manualChunks: {
           'vue': ['vue', 'vue-router'],
           'pinia': ['pinia'],
           'vuetify': ['vuetify']
-        }
-      }
+        },
+        // Ensure proper module format for browser compatibility
+        format: 'es',
+        // Ensure imports are properly handled
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js'
+      },
+      // Explicitly include all dependencies to ensure they're bundled
+      external: []
+    },
+    // Use proper module format for browser compatibility
+    target: 'esnext',
+    // Ensure all modules are fully bundled
+    modulePreload: {
+      polyfill: true
     },
     commonjsOptions: {
       transformMixedEsModules: true

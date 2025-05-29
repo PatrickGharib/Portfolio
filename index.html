@@ -21,6 +21,18 @@
         }
       }(window.location))
     </script>
+    <!-- Import maps for bare module specifiers - helps with GitHub Pages deployments -->
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "./assets/js/vue-*.js",
+          "vue-router": "./assets/js/vue-*.js",
+          "pinia": "./assets/js/pinia-*.js",
+          "vuetify": "./assets/js/vuetify-*.js",
+          "vuetify/": "./assets/js/vuetify-*.js"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
