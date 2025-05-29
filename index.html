@@ -21,11 +21,24 @@
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/Portfolio/assets/index-ChBDUDGc.js"></script>
-    <link rel="modulepreload" crossorigin href="/Portfolio/assets/vue-CdF_2H18.js">
-    <link rel="modulepreload" crossorigin href="/Portfolio/assets/pinia-DRfm55Rh.js">
-    <link rel="modulepreload" crossorigin href="/Portfolio/assets/vuetify-Bv-njkVU.js">
-    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-DEJQ0OfJ.css">
+    <!-- Import maps for bare module specifiers - helps with GitHub Pages deployments -->
+
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "./assets/js/vue-*.js",
+          "vue-router": "./assets/js/vue-*.js",
+          "pinia": "./assets/js/pinia-*.js",
+          "vuetify": "./assets/js/vuetify-*.js",
+          "vuetify/": "./assets/js/vuetify-*.js"
+        }
+      }
+    </script>
+    <script type="module" crossorigin src="/Portfolio/assets/js/index-fgKUwGoP.js"></script>
+    <link rel="modulepreload" crossorigin href="/Portfolio/assets/js/vue-CdF_2H18.js">
+    <link rel="modulepreload" crossorigin href="/Portfolio/assets/js/pinia-DRfm55Rh.js">
+    <link rel="modulepreload" crossorigin href="/Portfolio/assets/js/vuetify-Cymaw2fH.js">
+    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-BowGzfeO.css">
   </head>
   <body>
     <div id="app"></div>
