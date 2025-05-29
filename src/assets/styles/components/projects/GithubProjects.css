@@ -83,9 +83,10 @@
   text-align: center;
   padding: 2rem;
   color: #f44336;
-  background-color: rgba(244, 67, 54, 0.1);
+  background-color: var(--color-background);
   border-radius: 8px;
   margin: 2rem 0;
+  box-shadow: var(--shadow-md);
 }
 
 .github-projects-error-icon {
@@ -128,23 +129,44 @@
 
 .github-projects-filter {
   background-color: var(--color-background);
-  border: 1px solid var(--color-border);
   color: var(--color-text);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .github-projects-filter:hover {
-  border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .github-projects-filter.active {
   background-color: var(--color-primary);
   color: white;
   border-color: var(--color-primary);
+}
+
+.github-projects-view-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.github-projects-view-all .btn {
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github-projects-view-all .btn:hover {
+  transform: translateY(-3px);
 }
 
 /* Responsive adjustments */

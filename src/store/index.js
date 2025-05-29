@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const usePortfolioStore = defineStore('portfolio', {
   state: () => ({
-    theme: 'light',
+    theme: 'dark', // Always use dark theme
     projects: [
       {
         id: 1,
@@ -131,9 +131,6 @@ export const usePortfolioStore = defineStore('portfolio', {
     getProjectById: (state) => (id) => state.projects.find(project => project.id === parseInt(id))
   },
   actions: {
-    toggleTheme() {
-      this.theme = this.theme === 'light' ? 'dark' : 'light'
-      document.documentElement.setAttribute('data-theme', this.theme)
-    }
+    // No actions needed at this time
   }
 })

@@ -74,5 +74,9 @@ onMounted(() => {
         :repository="repo" 
       />
     </div>
+    
+    <div class="github-projects-view-all">
+      <a href="#" class="btn btn-primary">VIEW ALL PROJECTS</a>
+    </div>
   </section>
 </template>

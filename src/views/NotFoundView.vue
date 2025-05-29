@@ -69,10 +69,6 @@ onMounted(() => {
           <span>Learn more about me and my background</span>
         </li>
         <li>
-          <router-link to="/blog">Blog</router-link>
-          <span>Read my latest articles and tutorials</span>
-        </li>
-        <li>
           <router-link to="/contact">Contact</router-link>
           <span>Get in touch with me</span>
         </li>

@@ -1,57 +1,58 @@
 <script setup>
 import { onMounted } from 'vue'
 import { usePortfolioStore } from './store'
+import { useTheme } from 'vuetify'
 import TheHeader from './components/layout/TheHeader.vue'
 import TheFooter from './components/layout/TheFooter.vue'
 import BackgroundAnimation from './components/animations/BackgroundAnimation.vue'
 
 const store = usePortfolioStore()
+const theme = useTheme()
 
 onMounted(() => {
-  // Set initial theme based on user preference
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  if (prefersDarkMode) {
-    store.theme = 'dark'
-    document.documentElement.setAttribute('data-theme', 'dark')
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light')
-  }
+  // Always set theme to dark
+  theme.global.name.value = 'dark'
 })
 </script>
 
 <template>
-  <div class="app" :class="{ 'dark-theme': store.theme === 'dark' }">
+  <v-app theme="dark">
     <BackgroundAnimation />
     <TheHeader />
     
-    <main class="main-content">
+    <v-main :style="{ position: 'relative', zIndex: 1 }">
       <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
+        <v-fade-transition mode="out-in">
           <component :is="Component" />
-        </transition>
+        </v-fade-transition>
       </router-view>
-    </main>
+    </v-main>
     
     <TheFooter />
-  </div>
+  </v-app>
 </template>
 
 <style>
-/* Global CSS Variables */
+/* Global CSS Variables - Synchronized with Vuetify theme */
 :root {
   --color-primary: #4a6cf7;
   --color-secondary: #f86cf7;
   --color-accent: #6c7bfa;
+  --color-error: #e74c3c;
+  --color-warning: #f39c12;
+  --color-info: #1abc9c;
+  --color-success: #2ecc71;
   
-  --color-background: #ffffff;
-  --color-background-soft: #f8f9fa;
-  --color-background-mute: #f1f1f1;
+  /* Dark theme variables as default */
+  --color-background: #121212;
+  --color-background-soft: #1e1e1e;
+  --color-background-mute: #2c2c2c;
   
-  --color-text: #2c3e50;
-  --color-text-light: #6c757d;
+  --color-text: #ffffff;
+  --color-text-light: rgba(235, 235, 235, 0.64);
   
-  --color-border: #e5e7eb;
-  --color-border-hover: #d1d5db;
+  --color-border: rgba(84, 84, 84, 0.48);
+  --color-border-hover: rgba(84, 84, 84, 0.65);
   
   --section-gap: 160px;
   --section-gap-half: 80px;
@@ -63,22 +64,7 @@ onMounted(() => {
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Dark theme variables */
-[data-theme="dark"] {
-  --color-background: #121212;
-  --color-background-soft: #1e1e1e;
-  --color-background-mute: #2c2c2c;
-  
-  --color-text: #f1f1f1;
-  --color-text-light: #a0a0a0;
-  
-  --color-border: #2c2c2c;
-  --color-border-hover: #3f3f3f;
-  
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-}
+/* Dark theme is now handled by Vuetify */
 
 /* Base styles */
 *,
@@ -135,8 +121,7 @@ body {
 
 /* Ensure all sections take full width */
 .main-content > * {
-  width: 100%;
-  max-width: 100%;
+
   padding: 0 2rem;
   box-sizing: border-box;
 }
@@ -175,7 +160,7 @@ body {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(90deg, #4a6cf7, #f86cf7);
   border-radius: 2px;
 }
 
@@ -193,7 +178,7 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(90deg, #4a6cf7, #f86cf7);
   color: white;
   box-shadow: var(--shadow-md);
 }

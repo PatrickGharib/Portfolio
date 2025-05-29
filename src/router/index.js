@@ -39,6 +39,7 @@ const router = createRouter({
       name: 'about-site',
       component: () => import('../views/AboutSiteView.vue')
     },
+    // Blog routes completely removed
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',

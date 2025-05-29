@@ -1,9 +1,8 @@
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { usePortfolioStore } from '../../store'
-import { gsap } from 'gsap'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const store = usePortfolioStore()
+// Always use dark theme for animations
+const theme = 'dark'
 const canvas = ref(null)
 const ctx = ref(null)
 const particles = ref([])
@@ -13,18 +12,18 @@ const isInitialized = ref(false)
 
 // Configuration
 const config = ref({
-  particleCount: 100,
-  particleSize: { min: 1, max: 3 },
-  particleSpeed: { min: 0.2, max: 0.8 },
-  connectionDistance: 150,
+  particleCount: 120, // Optimized count for performance while maintaining visibility
+  particleSize: { min: 3, max: 6 }, // Significantly increase particle size for better visibility
+  particleSpeed: { min: 0.2, max: 0.6 }, // Slightly reduce max speed for more stability
+  connectionDistance: 180, // Increase connection distance
   colors: {
     light: {
       particles: ['#4a6cf7', '#f86cf7', '#6c7bfa'],
-      connections: 'rgba(108, 123, 250, 0.15)'
+      connections: 'rgba(74, 108, 247, 0.15)'
     },
     dark: {
-      particles: ['#4a6cf7', '#f86cf7', '#6c7bfa'],
-      connections: 'rgba(108, 123, 250, 0.25)'
+      particles: ['#4a6cf7', '#f86cf7', '#6c7bfa'], // Exact theme colors from theme
+      connections: 'rgba(74, 108, 247, 0.5)' // Primary color with transparency
     }
   }
 })
@@ -71,7 +70,7 @@ const createParticles = () => {
   particles.value = []
   
   for (let i = 0; i < config.value.particleCount; i++) {
-    const colors = config.value.colors[store.theme]
+    const colors = config.value.colors[theme]
     const color = colors.particles[Math.floor(Math.random() * colors.particles.length)]
     
     particles.value.push({
@@ -81,7 +80,7 @@ const createParticles = () => {
       color: color,
       speedX: (Math.random() - 0.5) * config.value.particleSpeed.max,
       speedY: (Math.random() - 0.5) * config.value.particleSpeed.max,
-      opacity: Math.random() * 0.5 + 0.5
+      opacity: Math.random() * 0.3 + 0.7 // Increase particle opacity
     })
   }
 }
@@ -104,7 +103,7 @@ const animate = () => {
 const updateParticles = () => {
   if (!ctx.value || !canvas.value) return
   
-  const colors = config.value.colors[store.theme]
+  const colors = config.value.colors[theme]
   
   for (let i = 0; i < particles.value.length; i++) {
     const particle = particles.value[i]
@@ -142,6 +141,7 @@ const updateParticles = () => {
         ctx.value.moveTo(particle.x, particle.y)
         ctx.value.lineTo(particle2.x, particle2.y)
         ctx.value.strokeStyle = colors.connections
+        ctx.value.lineWidth = 1.2; // Add line width for more visible connections
         ctx.value.globalAlpha = 1 - (distance / config.value.connectionDistance)
         ctx.value.stroke()
         ctx.value.globalAlpha = 1
@@ -170,6 +170,7 @@ const updateParticles = () => {
         ctx.value.moveTo(particle.x, particle.y)
         ctx.value.lineTo(mousePosition.value.x, mousePosition.value.y)
         ctx.value.strokeStyle = colors.connections
+        ctx.value.lineWidth = 1.5; // Add thicker line width for mouse connections
         ctx.value.globalAlpha = 1 - (distance / (config.value.connectionDistance * 1.5))
         ctx.value.stroke()
         ctx.value.globalAlpha = 1
@@ -186,14 +187,7 @@ const handleMouseMove = (e) => {
   }
 }
 
-// Watch for theme changes
-watch(() => store.theme, () => {
-  // Update particles with new theme colors
-  particles.value.forEach(particle => {
-    const colors = config.value.colors[store.theme]
-    particle.color = colors.particles[Math.floor(Math.random() * colors.particles.length)]
-  })
-})
+// No need to watch for theme changes since we're using a constant theme
 
 // Lifecycle hooks
 onMounted(() => {
@@ -221,7 +215,8 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0; /* Change from -1 to 0 to ensure visibility */
   pointer-events: none;
+  opacity: 0.8; /* Make particles more visible */
 }
 </style>
