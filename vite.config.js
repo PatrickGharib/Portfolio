@@ -5,9 +5,10 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import vuetify from 'vite-plugin-vuetify'
+import importMapPlugin from './vite.importmap.plugin'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: '/Portfolio/', // Base URL for GitHub Pages
   plugins: [
     vue(),
@@ -20,7 +21,9 @@ export default defineConfig({
       autoImport: true, // Auto import Vuetify components
       styles: { configFile: 'src/assets/styles/vuetify-settings.scss' }
     }),
-  ],
+    // Add custom import map plugin for production builds
+    mode === 'production' && importMapPlugin(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -45,17 +48,23 @@ export default defineConfig({
     // This is essential for GitHub Pages deployment to avoid bare specifier errors
     rollupOptions: {
       output: {
-        // Ensure proper code splitting
-        manualChunks: {
-          'vue': ['vue', 'vue-router'],
-          'pinia': ['pinia'],
-          'vuetify': ['vuetify']
+        // Ensure proper code splitting with explicit names for import map resolution
+        manualChunks: (id) => {
+          if (id.includes('node_modules/vue/') || id.includes('node_modules/vue-router/')) {
+            return 'vue';
+          }
+          if (id.includes('node_modules/pinia/')) {
+            return 'pinia';
+          }
+          if (id.includes('node_modules/vuetify/')) {
+            return 'vuetify';
+          }
         },
         // Ensure proper module format for browser compatibility
         format: 'es',
-        // Ensure imports are properly handled
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js'
+        // Use static filenames without hash for import map consistency
+        chunkFileNames: 'assets/js/[name].js',
+        entryFileNames: 'assets/js/[name].js'
       },
       // Explicitly include all dependencies to ensure they're bundled
       external: []
@@ -70,4 +79,4 @@ export default defineConfig({
       transformMixedEsModules: true
     }
   },
-})
+}))
