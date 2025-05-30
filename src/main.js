@@ -10,8 +10,8 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import App from './App.vue'
 import router from './router'
 
-// Import Vuetify styles
-import 'vuetify/styles'
+// Import Vuetify styles - use full path to avoid bare specifier issues
+import './assets/vuetify-styles.css' // This will be a copy of Vuetify styles
 import '@mdi/font/css/materialdesignicons.css'
 
 // Configure Vuetify with all necessary components and directives

@@ -31,6 +31,16 @@ export default function importMapPlugin() {
         };
       }
       
+      // Handle direct imports of vuetify styles
+      if (code.includes('import "vuetify/styles"') || code.includes("import 'vuetify/styles'")) {
+        return {
+          code: code
+            .replace(/import\s+["']vuetify\/styles["'];?/g, "import './assets/vuetify-styles.css';")
+            .replace(/import\s+["']vuetify\/styles\/["'];?/g, "import './assets/vuetify-styles.css';"),
+          map: null
+        };
+      }
+      
       return null;
     }
   };
